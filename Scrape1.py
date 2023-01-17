@@ -10,3 +10,5 @@ with open('D:\FAST UNIVERSITY\SEMESTER !\ICT LAB\Assignment 6\html form.html','r
 
     for label in label_tags:
         print(label.text)
+
+
