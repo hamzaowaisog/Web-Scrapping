@@ -4,5 +4,5 @@ with open('D:\FAST UNIVERSITY\SEMESTER !\ICT LAB\Assignment 6\html form.html','r
     content = html_file.read()
     soup = BeautifulSoup(content , 'lxml')
 
-    tags = soup.find('input')
-    print(tags)
+    input_tags = soup.find_all('input')
+    print(input_tags)
