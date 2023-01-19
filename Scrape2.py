@@ -5,10 +5,17 @@ html_url = requests.get('https://www.timesjobs.com/candidate/job-search.html?sea
 # print(html_url)
 
 soup = BeautifulSoup(html_url , 'lxml')
-jobs = soup.find('li',class_ = 'clearfix job-bx wht-shd-bx')
+job = soup.find_all('li',class_ = 'clearfix job-bx wht-shd-bx')
 
-company_name  = jobs.find('h3',class_ ='joblist-comp-name').text.replace(' ','')
-skills = jobs.find('span', class_ = 'srp-skills').text.replace(' ','')
-# print(jobs)
-print(skills)
-print(company_name)
+for jobs in job :
+    company_name  = jobs.find('h3',class_ ='joblist-comp-name').text.replace(' ','')
+    skills = jobs.find('span', class_ = 'srp-skills').text.replace(' ','')
+    publish_date = jobs.find('span', class_ = 'sim-posted').span.text
+    # print(jobs)
+    # print(skills)
+    # print(company_name)
+
+    print(f'''
+    Company Name : {company_name}
+    Required Skills : {skills}''')
+    print('')
