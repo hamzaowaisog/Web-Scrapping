@@ -12,12 +12,8 @@ for jobs in job :
     if 'few' in publish_date:
         company_name  = jobs.find('h3',class_ ='joblist-comp-name').text.replace(' ','')
         skills = jobs.find('span', class_ = 'srp-skills').text.replace(' ','')
-
-        # print(jobs)
-        # print(skills)
-        # print(company_name)
-
-        print(f'''
-        Company Name : {company_name}
-        Required Skills : {skills}''')
-        print('')
+        more_info = jobs.header.h2.a['href']
+        print(f"Company Name : {company_name.strip()}")
+        print(f"Required skills : {skills.strip()}")
+        print(f"More info : {more_info}")
+        print()
